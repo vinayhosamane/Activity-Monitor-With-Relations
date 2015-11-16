@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Activities" representedClassName="Activities" syncable="YES">
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actualStart" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="actualStop" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayno" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expectedStart" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expectedStop" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="started" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="activityToUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="userToActivities" inverseEntity="Users" syncable="YES"/>
+    </entity>
+    <entity name="ActivitiesCompleted" representedClassName="ActivitiesCompleted" syncable="YES">
+        <attribute name="activityname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="activityType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actualStartTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="actualStopTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="activitiesCompletedByUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="userToActivitiesCompleted" inverseEntity="Users" syncable="YES"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userToActivities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activities" inverseName="activityToUser" inverseEntity="Activities" syncable="YES"/>
+        <relationship name="userToActivitiesCompleted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivitiesCompleted" inverseName="activitiesCompletedByUser" inverseEntity="ActivitiesCompleted" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activities" positionX="-99" positionY="216" width="128" height="193"/>
+        <element name="ActivitiesCompleted" positionX="142" positionY="126" width="128" height="133"/>
+        <element name="Users" positionX="-63" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>
