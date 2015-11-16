@@ -26,6 +26,9 @@
     self.window.rootViewController=self.navigation;
     
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"i.m inside the app delegate");
+    NSLog(@"hello new activity monitor user");
     // Override point for customization after application launch.
     return YES;
 }
